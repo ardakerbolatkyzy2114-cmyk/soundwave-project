@@ -1,0 +1,126 @@
+/* =========================================
+   PART C: Spacing & Line Height 
+========================================= */
+* { box-sizing: border-box; }
+
+body {
+    /* Font Family 1: Sans-Serif */
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    /* Requirement: Line-height for readability */
+    line-height: 1.6; 
+    margin: 0; 
+    padding: 0;
+    background-color: #f4f4f9; 
+    /* Text Color */
+    color: #333; 
+}
+
+/* =========================================
+   PART B: Fonts & Colors
+========================================= */
+h1, h2, h3 {
+    /* Font Family 2: Serif */
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #1a1a2e;
+}
+
+.role {
+    /* Font Family 3: Monospace */
+    font-family: "Courier New", Courier, monospace;
+    font-style: italic; /* Font style */
+    font-weight: bold;  /* Font weight */
+    color: #e94560;
+}
+
+/* Links & Hover Effects */
+a { color: #e94560; text-decoration: none; }
+/* Requirement: Hover color for links */
+a:hover { color: #000; text-decoration: underline; }
+
+/* =========================================
+   PART A & C: Selectors, Alignment, Margin/Padding
+========================================= */
+/* Element + ID Selector (Center Alignment) */
+#main-header {
+    background-color: #1a1a2e; 
+    color: #fff;
+    padding: 1.5rem 2rem; 
+    text-align: center; /* ALIGN: CENTER */
+}
+
+/* Class Selector */
+.nav-menu { list-style-type: none; padding: 0; margin: 0; }
+.nav-menu li { display: inline-block; margin: 0 15px; }
+.nav-menu a { color: #e94560; font-weight: bold; font-size: 1.1rem; }
+.nav-menu a:hover { color: #fff; }
+
+main { padding: 2em; max-width: 1200px; margin: 0 auto; min-height: 60vh;}
+
+/* Justify Alignment for articles (Requirement) */
+article p, .desc { text-align: justify; /* ALIGN: JUSTIFY */ }
+
+/* Float utility */
+.content-wrapper { width: 100%; }
+.main-content { float: left; width: 65%; padding-right: 20px; }
+.sidebar { float: right; width: 30%; background-color: #fff; padding: 1.5em; border-left: 4px solid #e94560; border-radius: 8px; }
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* =========================================
+   PART D: Profile Cards & Hover Effects
+========================================= */
+.profile-card {
+    background: #fff;
+    width: 45%;
+    float: left;
+    margin: 2%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    text-align: center;
+    /* Transition for smooth hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Unique ID styling for specific profiles */
+#profile-ardak { border-bottom: 5px solid #007bff; }
+#profile-linara { border-bottom: 5px solid #e94560; }
+
+/* REQUIREMENT: Hover effects on cards */
+.profile-card:hover {
+    transform: translateY(-10px); /* Moves card up */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Adds shadow */
+    border-color: #333;
+    background-color: #fcfcfc; /* Background change */
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #f4f4f9;
+}
+
+/* Form Styles */
+form { background: #fff; padding: 20px; border-radius: 8px; max-width: 500px; }
+.form-group { margin-bottom: 15px; text-align: left; /* ALIGN: LEFT */ }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+button { background-color: #e94560; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
+button:hover { background-color: #d13d56; }
+
+/* =========================================
+   PRIORITY TEST CSS (Part A)
+========================================= */
+.priority-demo-section { background: #eee; padding: 20px; margin-top: 30px; border-radius: 5px;}
+/* Element selector */
+p { color: #333; } 
+/* Class selector */
+.priority-class { color: green; } 
+/* ID selector */
+#priority-text { color: blue; } 
+/* Notice: The inline style "color: purple" in the HTML will beat all of these! */
+
+/* Footer Right Alignment */
+footer { background-color: #1a1a2e; color: #fff; padding: 20px; margin-top: 40px; }
+.footer-text { text-align: right; /* ALIGN: RIGHT */ }

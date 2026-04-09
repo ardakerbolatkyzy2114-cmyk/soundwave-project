@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SoundWave | Contact & About Us</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3011/3011236.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="main-header">
+        <h1>SoundWave Discovery</h1>
+        <p>Your guide to the best new music and timeless classics.</p>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact & About</a></li>
+                <li><a href="https://pitchfork.com/" target="_blank">Music News</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about-us">
+            <h2 class="section-title">About the Creators</h2>
+            <div class="content-wrapper clearfix">
+                
+                <div class="profile-card" id="profile-ardak">
+                    <img src="ardak.jpeg" alt="Ardak" class="profile-img">
+                    <h3>Ardak Yerbolatkyzy</h3>
+                    <p class="role">HTML & Structure Specialist</p>
+                    <p class="desc">Passionate about semantic web structure and accessible design. Ensures the site is perfectly organized.</p>
+                </div>
+
+                <div class="profile-card" id="profile-linara">
+                    <img src="linara.jpeg" alt="Linara" class="profile-img">
+                    <h3>Linara Yermekova</h3>
+                    <p class="role">CSS & UI Designer</p>
+                    <p class="desc">Loves creating beautiful, responsive interfaces and working with advanced CSS properties.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contact">
+            <h2>Join Our Newsletter</h2>
+            <form action="#" method="get" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <section class="priority-demo-section">
+            <h2>CSS Priority Demonstration</h2>
+            <p id="priority-text" class="priority-class" style="color: purple; font-weight: bold;">
+                This text is PURPLE because INLINE styles beat ID and Class selectors!
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="footer-text">Aligned Right: &copy; 2024 SoundWave Music Reviews.</p>
+        <address>Contact us: <a href="mailto:hello@soundwave.com" class="footer-link">hello@soundwave.com</a></address>
+    </footer>
+</body>
+</html>
