@@ -1,126 +1,56 @@
-/* =========================================
-   PART C: Spacing & Line Height 
-========================================= */
-* { box-sizing: border-box; }
+/* Пункт 7: Кастомизация компонентов с помощью собственного CSS */
 
-body {
-    /* Font Family 1: Sans-Serif */
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    /* Requirement: Line-height for readability */
-    line-height: 1.6; 
-    margin: 0; 
-    padding: 0;
-    background-color: #f4f4f9; 
-    /* Text Color */
-    color: #333; 
+/* Настройка внешнего вида карточек */
+.my-custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    overflow: hidden;
+    background-color: #1e1e1e !important; /* Собственный цвет фона для карточек */
 }
 
-/* =========================================
-   PART B: Fonts & Colors
-========================================= */
-h1, h2, h3 {
-    /* Font Family 2: Serif */
-    font-family: "Georgia", "Times New Roman", serif;
-    color: #1a1a2e;
+/* Эффект при наведении (кастомное поведение) */
+.my-custom-card:hover {
+    transform: translateY(-10px); /* Карточка плавно приподнимается */
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2); /* Появляется синее свечение */
+    border-color: #0d6efd !important;
 }
 
-.role {
-    /* Font Family 3: Monospace */
-    font-family: "Courier New", Courier, monospace;
-    font-style: italic; /* Font style */
-    font-weight: bold;  /* Font weight */
-    color: #e94560;
+/* Настройка изображений в карточках */
+.card-img-top {
+    height: 300px;
+    object-fit: cover; /* Фотографии не искажаются, а обрезаются по размеру */
+    filter: grayscale(20%); /* Легкий черно-белый фильтр */
+    transition: filter 0.3s ease;
 }
 
-/* Links & Hover Effects */
-a { color: #e94560; text-decoration: none; }
-/* Requirement: Hover color for links */
-a:hover { color: #000; text-decoration: underline; }
-
-/* =========================================
-   PART A & C: Selectors, Alignment, Margin/Padding
-========================================= */
-/* Element + ID Selector (Center Alignment) */
-#main-header {
-    background-color: #1a1a2e; 
-    color: #fff;
-    padding: 1.5rem 2rem; 
-    text-align: center; /* ALIGN: CENTER */
+.my-custom-card:hover .card-img-top {
+    filter: grayscale(0%); /* При наведении фото становится полностью цветным */
 }
 
-/* Class Selector */
-.nav-menu { list-style-type: none; padding: 0; margin: 0; }
-.nav-menu li { display: inline-block; margin: 0 15px; }
-.nav-menu a { color: #e94560; font-weight: bold; font-size: 1.1rem; }
-.nav-menu a:hover { color: #fff; }
+/* Стилизация полосы прокрутки для темной темы */
+::-webkit-scrollbar {
+    width: 10px;
+}
 
-main { padding: 2em; max-width: 1200px; margin: 0 auto; min-height: 60vh;}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
 
-/* Justify Alignment for articles (Requirement) */
-article p, .desc { text-align: justify; /* ALIGN: JUSTIFY */ }
-
-/* Float utility */
-.content-wrapper { width: 100%; }
-.main-content { float: left; width: 65%; padding-right: 20px; }
-.sidebar { float: right; width: 30%; background-color: #fff; padding: 1.5em; border-left: 4px solid #e94560; border-radius: 8px; }
-.clearfix::after { content: ""; display: table; clear: both; }
-
-/* =========================================
-   PART D: Profile Cards & Hover Effects
-========================================= */
-.profile-card {
-    background: #fff;
-    width: 45%;
-    float: left;
-    margin: 2%;
-    padding: 20px;
+::-webkit-scrollbar-thumb {
+    background: #333;
     border-radius: 10px;
-    border: 2px solid #ddd;
-    text-align: center;
-    /* Transition for smooth hover effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Unique ID styling for specific profiles */
-#profile-ardak { border-bottom: 5px solid #007bff; }
-#profile-linara { border-bottom: 5px solid #e94560; }
-
-/* REQUIREMENT: Hover effects on cards */
-.profile-card:hover {
-    transform: translateY(-10px); /* Moves card up */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Adds shadow */
-    border-color: #333;
-    background-color: #fcfcfc; /* Background change */
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
 }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #f4f4f9;
+/* Кастомные отступы и стили для ссылок в футере */
+footer address a {
+    transition: color 0.2s ease;
 }
 
-/* Form Styles */
-form { background: #fff; padding: 20px; border-radius: 8px; max-width: 500px; }
-.form-group { margin-bottom: 15px; text-align: left; /* ALIGN: LEFT */ }
-.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-.form-group input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-button { background-color: #e94560; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
-button:hover { background-color: #d13d56; }
-
-/* =========================================
-   PRIORITY TEST CSS (Part A)
-========================================= */
-.priority-demo-section { background: #eee; padding: 20px; margin-top: 30px; border-radius: 5px;}
-/* Element selector */
-p { color: #333; } 
-/* Class selector */
-.priority-class { color: green; } 
-/* ID selector */
-#priority-text { color: blue; } 
-/* Notice: The inline style "color: purple" in the HTML will beat all of these! */
-
-/* Footer Right Alignment */
-footer { background-color: #1a1a2e; color: #fff; padding: 20px; margin-top: 40px; }
-.footer-text { text-align: right; /* ALIGN: RIGHT */ }
+footer address a:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
