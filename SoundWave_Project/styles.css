@@ -1,0 +1,56 @@
+/* Пункт 7: Кастомизация компонентов с помощью собственного CSS */
+
+/* Настройка внешнего вида карточек */
+.my-custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    overflow: hidden;
+    background-color: #1e1e1e !important; /* Собственный цвет фона для карточек */
+}
+
+/* Эффект при наведении (кастомное поведение) */
+.my-custom-card:hover {
+    transform: translateY(-10px); /* Карточка плавно приподнимается */
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2); /* Появляется синее свечение */
+    border-color: #0d6efd !important;
+}
+
+/* Настройка изображений в карточках */
+.card-img-top {
+    height: 300px;
+    object-fit: cover; /* Фотографии не искажаются, а обрезаются по размеру */
+    filter: grayscale(20%); /* Легкий черно-белый фильтр */
+    transition: filter 0.3s ease;
+}
+
+.my-custom-card:hover .card-img-top {
+    filter: grayscale(0%); /* При наведении фото становится полностью цветным */
+}
+
+/* Стилизация полосы прокрутки для темной темы */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Кастомные отступы и стили для ссылок в футере */
+footer address a {
+    transition: color 0.2s ease;
+}
+
+footer address a:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}

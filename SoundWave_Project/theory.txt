@@ -1,0 +1,1 @@
+Responsive design is a web development approach that ensures web pages look good on all devices. It uses flexible grid systems (like Bootstrap's Containers and Rows), fluid images, and CSS media queries. This ensures the website is equally neat and usable on desktop, tablet, and mobile.
