@@ -1,54 +1,115 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundWave | Contact</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .strike { text-decoration: line-through; opacity: 0.5; color: #6c757d; }
+        .error-tag { color: #ff5a5a; font-size: 0.85rem; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary px-4 py-3">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">SOUNDWAVE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary px-4 py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html">SOUNDWAVE</a>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto gap-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link text-warning" href="responsive.html">Responsive Test</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Tasks & Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main class="container my-5">
-        <div class="p-5 rounded-4 border border-secondary shadow">
-            <h2 class="text-center mb-4">Join Our Newsletter</h2>
-            <form class="row g-3">
-                <div class="col-md-6">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" required>
+        <div class="row g-5">
+            <!-- Задача 2: Валидация формы -->
+            <div class="col-md-6">
+                <div class="bg-dark p-4 rounded-4 border border-secondary shadow h-100">
+                    <h3 class="text-warning mb-4">Registration Form</h3>
+                    <form id="regForm" onsubmit="return handleFormSubmit(event)">
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="emailVal" class="form-control" placeholder="user@mail.com">
+                            <div id="emailErr" class="error-tag mt-1"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password (min 8 chars)</label>
+                            <input type="password" id="passVal" class="form-control">
+                            <div id="passErr" class="error-tag mt-1"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" id="confVal" class="form-control">
+                            <div id="confErr" class="error-tag mt-1"></div>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold py-2">Submit Form</button>
+                    </form>
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" required>
+            </div>
+
+            <!-- Задача 3: Интерактивный список дел (To-Do) -->
+            <div class="col-md-6">
+                <div class="bg-dark p-4 rounded-4 border border-secondary shadow h-100">
+                    <h3 class="text-primary mb-4">Team Task List</h3>
+                    <div class="input-group mb-4">
+                        <input type="text" id="todoTask" class="form-control border-primary" placeholder="Enter task...">
+                        <button class="btn btn-primary px-4 fw-bold" onclick="addToList()">Add</button>
+                    </div>
+                    <ul id="taskBox" class="list-group list-group-flush border-top border-secondary">
+                        <!-- Задачи добавляются сюда динамически -->
+                    </ul>
                 </div>
-                <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-primary px-5">Subscribe</button>
-                </div>
-            </form>
+            </div>
         </div>
     </main>
 
-    <footer class="bg-dark text-secondary py-4 border-top border-secondary mt-auto">
+    <footer class="bg-dark text-secondary py-4 border-top border-secondary mt-5">
         <div class="container text-center">
-            <p>&copy; 2024 SoundWave Project.</p>
+            <p class="mb-1"><strong>Team Members:</strong> Ardak, Linara</p>
+            <p class="small mb-0">&copy; 2026 SoundWave Music Lab. Assignment 4 Submission.</p>
         </div>
     </footer>
+
+    <script>
+        // Логика валидации формы (Requirement 2)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            let isOk = true;
+            const email = document.getElementById('emailVal').value;
+            const p1 = document.getElementById('passVal').value;
+            const p2 = document.getElementById('confVal').value;
+
+            document.getElementById('emailErr').innerText = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "Invalid email address format." : "";
+            document.getElementById('passErr').innerText = p1.length < 8 ? "Minimum 8 characters required." : "";
+            document.getElementById('confErr').innerText = p1 !== p2 ? "Passwords do not match." : "";
+
+            if (!document.getElementById('emailErr').innerText && !document.getElementById('passErr').innerText && !document.getElementById('confErr').innerText) {
+                alert("Success! Form data validated.");
+                document.getElementById('regForm').reset();
+            }
+        }
+
+        // Логика To-Do списка (Requirement 3)
+        function addToList() {
+            const field = document.getElementById('todoTask');
+            if (!field.value.trim()) return;
+            
+            const li = document.createElement('li');
+            li.className = "list-group-item bg-dark text-light d-flex justify-content-between align-items-center border-secondary px-0 py-3";
+            li.innerHTML = `
+                <span class="fs-5" onclick="this.classList.toggle('strike')" style="cursor:pointer;">${field.value}</span>
+                <button class="btn btn-sm btn-outline-danger px-3 fw-bold" onclick="this.parentElement.remove()">Remove</button>
+            `;
+            document.getElementById('taskBox').appendChild(li);
+            field.value = "";
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> 

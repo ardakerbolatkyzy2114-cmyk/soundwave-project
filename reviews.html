@@ -1,91 +1,139 @@
 <!DOCTYPE html>
-<html lang="ru" data-bs-theme="dark"> <!-- Пункт 8: Темная тема -->
+<html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundWave | Reviews</title>
-    
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3011/3011236.png">
-    
-    <!-- Подключение Bootstrap CSS -->
+    <title>SoundWave | Tools</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Твой файл стилей (с анимацией карточек) -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Навигация (такая же, как на других страницах) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary px-4 py-3">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">SOUNDWAVE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary px-4 py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-info" href="index.html">SOUNDWAVE</a>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto gap-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact & About</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link text-info" href="https://pitchfork.com/" target="_blank">Music News</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="reviews.html">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Tasks & Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="container mt-5 text-center">
-        <!-- Типографика Bootstrap -->
-        <h1 class="display-3 fw-bold mb-3">Music Reviews</h1>
-        <p class="lead text-secondary border-bottom border-secondary pb-4">In-depth analysis of the latest sonic landscapes.</p>
-    </header>
-
     <main class="container my-5">
-        <h2 class="mb-5 text-center display-4 fw-bold">Latest Reviews</h2>
-        
-        <!-- Сетка: 1 колонка на мобильных, 2 на планшетах, 3 на ПК для уменьшения размера -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-            
-            <!-- Карточка №1: Линара -->
-            <div class="col">
-                <div class="card my-custom-card h-100 shadow-sm border-0">
-                    <img src="linara.jpeg" class="card-img-top" alt="Линара">
-                    <div class="card-body p-4 text-center">
-                        <h5 class="card-title h3 fw-bold mb-3">Retro Vibes</h5>
-                        <p class="card-text text-secondary mb-4">A masterpiece of modern electronic music. Reviewed by Linara.</p>
-                        <div class="d-flex justify-content-center">
-                            <span class="badge bg-info px-3 py-2">Rating: 9/10</span>
+        <div class="row g-5">
+            <!-- Задача 4: Инструмент сортировки чисел -->
+            <div class="col-md-6">
+                <div class="card h-100 border-info bg-dark shadow-lg">
+                    <div class="card-header bg-info text-dark fw-bold">Number Sorting Tool</div>
+                    <div class="card-body p-4">
+                        <p class="small text-secondary mb-3">Input numbers separated by commas:</p>
+                        <input type="text" id="numbersInput" class="form-control mb-3 bg-secondary bg-opacity-10 border-secondary" placeholder="e.g. 88, 12, 4, 32">
+                        
+                        <div class="row g-2 mb-4">
+                            <div class="col-6"><button class="btn btn-outline-info w-100 fw-bold" onclick="sortArray('asc')">Ascending</button></div>
+                            <div class="col-6"><button class="btn btn-outline-info w-100 fw-bold" onclick="sortArray('desc')">Descending</button></div>
+                        </div>
+                        
+                        <div class="p-3 bg-black rounded text-center border border-secondary shadow-inner">
+                            <h6 class="text-info mb-1">Sorted Result:</h6>
+                            <div id="sortedDisplay" class="fw-bold fs-5">Waiting...</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Карточка №2: Ардак -->
-            <div class="col">
-                <div class="card my-custom-card h-100 shadow-sm border-0">
-                    <img src="ardak.jpeg" class="card-img-top" alt="Ардак">
-                    <div class="card-body p-4 text-center">
-                        <h5 class="card-title h3 fw-bold mb-3">Acoustic Dreams</h5>
-                        <p class="card-text text-secondary mb-4">Deep emotional journey through string melodies. Reviewed by Ardak.</p>
-                        <div class="d-flex justify-content-center">
-                            <span class="badge bg-success px-3 py-2">Rating: 8.5/10</span>
+            <!-- Задача 7: Игра "Угадай число" (Бонус) -->
+            <div class="col-md-6">
+                <div class="card h-100 border-danger bg-dark shadow-lg">
+                    <div class="card-header bg-danger text-white fw-bold">Number Guessing Game</div>
+                    <div class="card-body text-center p-4">
+                        <p class="mb-4">Guess the hidden number between 1 and 100.</p>
+                        <div class="input-group mb-3 w-75 mx-auto">
+                            <input type="number" id="guessBox" class="form-control border-danger" placeholder="?">
+                            <button class="btn btn-danger px-4 fw-bold" onclick="makeGuess()">Guess</button>
                         </div>
+                        <div id="hintMsg" class="fs-5 fw-bold text-warning mb-2"></div>
+                        <div id="triesMsg" class="badge bg-secondary mb-3 p-2">Attempts: 0</div>
+                        <br>
+                        <button class="btn btn-link btn-sm text-secondary text-decoration-none" onclick="restartGame()">Reset Game</button>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <!-- Секция отзывов с твоими изображениями -->
+        <div class="row mt-5 g-4">
+            <div class="col-md-6">
+                <div class="card my-custom-card border-0 shadow">
+                    <img src="linara.jpeg" class="card-img-top" alt="Reviewer">
+                    <div class="card-body p-4 text-center">
+                        <h5 class="fw-bold text-white">Linara's Feedback</h5>
+                        <p class="text-secondary small">"The interactive tools are great for sound engineers!"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card my-custom-card border-0 shadow">
+                    <img src="ardak.jpeg" class="card-img-top" alt="Reviewer">
+                    <div class="card-body p-4 text-center">
+                        <h5 class="fw-bold text-white">Ardak's Choice</h5>
+                        <p class="text-secondary small">"I love how the sorting tool works instantly."</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
-    <footer class="container-fluid bg-dark text-secondary py-4 border-top border-secondary mt-5">
-        <div class="container d-flex justify-content-between align-items-center flex-wrap">
-            <p class="mb-0">&copy; 2024 SoundWave Music Reviews. All rights reserved.</p>
-            <address class="mb-0">Contact us: <a href="mailto:hello@soundwave.com" class="text-danger text-decoration-none">hello@soundwave.com</a></address>
+    <footer class="bg-dark text-secondary py-4 border-top border-secondary mt-5">
+        <div class="container text-center">
+            <p class="mb-1"><strong>Team Members:</strong> Ardak, Linara</p>
+            <p class="small mb-0">&copy; 2026 SoundWave Music Lab. Assignment 4 Submission.</p>
         </div>
     </footer>
 
-    <!-- Скрипты Bootstrap -->
+    <script>
+        // Логика сортировки массива (Requirement 4)
+        function sortArray(dir) {
+            const input = document.getElementById('numbersInput').value;
+            if (!input.trim() || !/^[\d,\s.-]+$/.test(input)) {
+                return alert("Invalid input! Use numbers and commas.");
+            }
+            let arr = input.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+            
+            if (dir === 'asc') arr.sort((a,b) => a - b);
+            else arr.sort((a,b) => b - a);
+            
+            document.getElementById('sortedDisplay').innerText = arr.join(', ');
+        }
+
+        // Логика игры "Угадай число" (Requirement 7)
+        let secret = Math.floor(Math.random() * 100) + 1;
+        let count = 0;
+        function makeGuess() {
+            const guess = parseInt(document.getElementById('guessBox').value);
+            if (isNaN(guess)) return;
+            count++;
+            const msg = document.getElementById('hintMsg');
+            if (guess === secret) {
+                msg.innerText = "🎉 Correct!";
+                alert("You guessed it in " + count + " attempts!");
+                restartGame();
+            } else {
+                msg.innerText = guess < secret ? "Too Low ↑" : "Too High ↓";
+            }
+            document.getElementById('triesMsg').innerText = "Attempts: " + count;
+            document.getElementById('guessBox').value = "";
+        }
+        function restartGame() {
+            secret = Math.floor(Math.random() * 100) + 1;
+            count = 0;
+            document.getElementById('hintMsg').innerText = "";
+            document.getElementById('triesMsg').innerText = "Attempts: 0";
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>  

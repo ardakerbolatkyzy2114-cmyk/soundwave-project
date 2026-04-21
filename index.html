@@ -1,72 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundWave | Home</title>
+    <!-- Подключение Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение общего файла стилей -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary px-4 py-3">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">SOUNDWAVE</a>
+<body id="mainBody">
+
+    <!-- Навигация (одинаковая для всех страниц) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">SOUNDWAVE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto gap-3">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link text-warning" href="responsive.html">Responsive Test</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Tasks & Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container my-5">
-        <header class="text-center mb-5">
-            <h1 class="display-3 fw-bold">Welcome to SoundWave</h1>
-            <p class="lead">Your ultimate destination for music reviews and discoveries.</p>
-        </header>
+    <!-- Основной контент главной страницы -->
+    <header class="container mt-5 text-center">
+        <div class="p-5 rounded-4 bg-dark bg-opacity-50 border border-secondary shadow-lg hero-card">
+            <h1 class="display-3 fw-bold mb-3">SoundWave Interactive</h1>
+            <p class="lead text-secondary mb-4">A digital workspace exploring JavaScript fundamentals.</p>
+            
+            <!-- Задача 6: Отображение текущей даты и времени -->
+            <div class="mb-4">
+                <div class="d-inline-block p-3 border border-primary rounded bg-black shadow-sm">
+                    <span id="clock" class="fs-4 fw-bold text-primary">Initializing clock...</span>
+                </div>
+            </div>
 
-        <section class="row g-4">
+            <!-- Задача 5: Изменение цвета фона страницы -->
+            <div class="mt-4">
+                <p class="text-light">Modify the page's atmosphere using DOM manipulation:</p>
+                <button class="btn btn-primary btn-lg px-5 rounded-pill fw-bold" onclick="changeColor()">Change Background Color</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row align-items-center g-5">
             <div class="col-md-6">
-                <div class="card my-custom-card h-100">
-                    <img src="music.jpg" class="card-img-top" alt="Featured Music">
-                    <div class="card-body">
-                        <h5 class="card-title">Latest Album Picks</h5>
-                        <p class="card-text">Check out our top rated albums of the month, from synthwave to classic jazz.</p>
-                        <a href="reviews.html" class="btn btn-primary">Go to Reviews</a>
-                    </div>
-                </div>
+                <img src="music.jpg" alt="Music Background" class="img-fluid rounded-4 shadow">
             </div>
             <div class="col-md-6">
-                <div class="card my-custom-card h-100">
-                    <div class="card-body">
-                        <h2 class="h4 mb-4">Weekly Schedule</h2>
-                        <table class="table table-dark table-hover">
-                            <thead>
-                                <tr><th>Show</th><th>Day</th><th>Time</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Synthwavers</td><td>Friday</td><td>8:00 PM</td></tr>
-                                <tr><td>Acoustic</td><td>Saturday</td><td>10:00 AM</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <h2 class="fw-bold">Dynamic Experience</h2>
+                <p class="text-secondary">Explore how JavaScript can change the user experience in real-time. Navigate through the menu to see other tools like the Sorting tool and To-Do list.</p>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="bg-dark text-secondary py-4 border-top border-secondary mt-auto">
-        <div class="container d-flex justify-content-between">
-            <p>&copy; 2024 SoundWave Project.</p>
-            <p>Contact: hello@soundwave.com</p>
+    <!-- Футер с именами команды (Requirement 1) -->
+    <footer class="bg-dark text-secondary py-4 border-top border-secondary mt-5">
+        <div class="container text-center">
+            <p class="mb-1"><strong>Team Members:</strong> Ardak, Linara</p>
+            <p class="small mb-0">&copy; 2026 SoundWave Music Lab. Assignment 4 Submission.</p>
         </div>
     </footer>
+
+    <!-- Скрипты для главной страницы -->
+    <script>
+        // Функция для обновления времени каждую секунду (Requirement 6)
+        function updateClock() {
+            const now = new Date();
+            const formatOptions = { 
+                month: 'long', day: 'numeric', year: 'numeric', 
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
+            };
+            document.getElementById('clock').innerText = now.toLocaleString('en-US', formatOptions);
+        }
+        setInterval(updateClock, 1000); // Обновление каждую секунду
+        updateClock();
+
+        // Функция изменения фона страницы (Requirement 5)
+        function changeColor() {
+            const colors = ['#1a1a2e', '#16213e', '#0f3460', '#1b262c', '#000000', '#121212'];
+            const randomPick = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('mainBody').style.backgroundColor = randomPick;
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> 
