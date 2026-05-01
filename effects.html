@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Dynamic Effects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Unique Visual Style */
+        body { 
+            font-family: 'Arial', sans-serif; 
+            padding: 40px; 
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .info { color: #0056b3; border-left: 4px solid #0056b3; padding-left: 10px; }
+        .warning { color: #d9534f; font-weight: 600; }
+        .success { 
+            border: 2px solid #5cb85c; 
+            padding: 20px; 
+            margin: 20px 0; 
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: block;
+            width: 300px;
+            text-align: center;
+        }
+        
+        /* Modern Button Styling */
+        .control-btn { 
+            background-color: #4a4a4a; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            margin: 5px;
+            border-radius: 20px; 
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .control-btn:hover { background-color: #000; }
+        
+        img { 
+            width: 280px; 
+            margin-top: 30px; 
+            border-radius: 12px;
+            cursor: crosshair;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <p class="info">General Information: This text can be hidden.</p>
+    <p class="warning">Warning: Click the toggle button to make me appear/disappear!</p>
+    <p class="success">Hover your mouse here for a color change!</p>
+
+    <div class="actions">
+        <button id="hideInfoBtn" class="control-btn">Hide Info</button>
+        <button id="showEverythingBtn" class="control-btn">Show All</button>
+        <button id="toggleWarningBtn" class="control-btn">Toggle Warning</button>
+    </div>
+
+    <img id="practiceImage" src="https://picsum.photos/id/15/400/300" alt="Nature Scene">
+
+    <script>
+        $(document).ready(function() {
+            
+            // Effect: Hide elements with class .info [cite: 16]
+            $("#hideInfoBtn").on("click", function() {
+                $(".info").hide(400); // Added small duration for smoothness
+            });
+
+            // Effect: Show all hidden elements [cite: 17]
+            $("#showEverythingBtn").on("click", function() {
+                $(".info, .warning").show();
+            });
+
+            // Effect: Toggle visibility for .warning class [cite: 18]
+            $("#toggleWarningBtn").on("click", function() {
+                $(".warning").toggle();
+            });
+
+            // Effect: Change background on hover using .css() [cite: 19]
+            $(".success").hover(
+                function() {
+                    $(this).css("background-color", "#e8f5e9");
+                }, 
+                function() {
+                    $(this).css("background-color", "#ffffff");
+                }
+            );
+
+            // Effect: Fade toggle image when clicked [cite: 20]
+            $("#practiceImage").click(function() {
+                $(this).fadeToggle("fast");
+            });
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation & Animation</title>
+    <!-- Проверь название: styles.css (с буквой s) -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a> | 
+        <a href="elements.html">DOM & Animation</a> | 
+        <a href="game.html">Game</a>
+    </nav>
+
+    <main>
+        <!-- Раздел 4: DOM Manipulation с jQuery -->
+        <section>
+            <h1>DOM Manipulation</h1>
+            <p>Manage your dynamic list below:</p>
+            <ul id="dynamic-list">
+                <li>Existing Item 1</li>
+            </ul>
+            <button id="addBtn">Add Item (.append)</button>
+            <button id="removeBtn">Remove Item (.remove)</button>
+
+            <h3>Attribute & Source Changes</h3>
+            <img id="attrImg" src="https://picsum.photos/id/20/200/150" alt="Initial Image">
+            <br>
+            <button id="changeSrcBtn">Change Image Source</button>
+            <br><br>
+            <a id="dynamicLink" href="https://google.com" target="_blank">Visit Google</a>
+            <br>
+            <button id="changeHrefBtn">Change Link to YouTube</button> 
+        </section>
+
+        <hr>
+
+        <!-- Раздел 5: Animations -->
+        <section>
+            <h1>Square Animations</h1>
+            <p>Watch the square move and resize:</p>
+            <!-- Тот самый квадратный div из задания -->
+            <div id="animateBox" class="square"></div>
+            <button id="startAnimBtn">Run Step-by-Step Animation</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Team Members: [Твое Имя], [Имя Подруги]</p>
+    </footer>
+
+    <!-- Скрипт в самом конце -->
+    <script src="script.js"></script>
+</body>
+</html> 

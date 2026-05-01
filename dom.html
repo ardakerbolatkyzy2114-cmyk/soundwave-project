@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Workshop</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Светлая профессиональная тема */
+        body { 
+            font-family: 'Trebuchet MS', sans-serif; 
+            padding: 30px; 
+            background-color: #f4f7f6; 
+            color: #333; 
+        }
+        
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+
+        .menu-bar { 
+            background: #fff; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px; 
+        }
+        
+        /* Стильные кнопки с тенями */
+        .btn-ui { 
+            padding: 10px 18px; 
+            margin: 4px; 
+            border: none; 
+            background: #34495e; 
+            color: #ecf0f1;
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .btn-ui:hover { background: #2c3e50; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        #container { 
+            border: 2px solid #bdc3c7; 
+            min-height: 250px; 
+            padding: 20px; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            position: relative;
+            background: #ffffff;
+            border-radius: 12px;
+        }
+
+        /* Квадраты (.box) согласно критериям */
+        .box { 
+            width: 55px; 
+            height: 55px; 
+            background-color: #3498db; 
+            border-radius: 4px; /* Маленькое скругление, но это все еще квадрат */
+            position: relative; 
+        }
+
+        #info-log { 
+            margin-top: 20px; 
+            padding: 10px;
+            background: #e1e8ed;
+            display: inline-block;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>jQuery Box Management</h2>
+
+    <div class="menu-bar">
+        <button id="addBoxBtn" class="btn-ui">Add Box</button>
+        <button id="removeBoxBtn" class="btn-ui">Remove Box</button>
+        <button id="animateAllBtn" class="btn-ui">Animate Boxes</button>
+        <button id="randomizeColorBtn" class="btn-ui">Random Color</button>
+    </div>
+
+    <div id="container"></div>
+
+    <div id="info-log">
+        Total Items: <span id="countDisplay">0</span>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            // Обновление счетчика текста (.text)
+            function updateStats() {
+                var total = $(".box").length;
+                $("#countDisplay").text(total); 
+            }
+
+            // 1. Добавление (.append)
+            $("#addBoxBtn").on("click", function() {
+                $("#container").append('<div class="box"></div>'); 
+                updateStats();
+            });
+
+            // 2. Удаление последнего (.remove)
+            $("#removeBoxBtn").on("click", function() {
+                $(".box").last().remove(); 
+                updateStats();
+            });
+
+            // 3. Анимация (.animate) и цепочка (chaining)
+            $("#animateAllBtn").on("click", function() {
+                $(".box").animate({
+                    left: "+=60px",
+                    width: "35px",
+                    height: "35px",
+                    opacity: 0.3
+                }, 700).animate({
+                    left: "0px",
+                    width: "55px",
+                    height: "55px",
+                    opacity: 1
+                }, 500);
+            });
+
+            // 4. Случайный цвет (.css и Math.random)
+            $("#randomizeColorBtn").on("click", function() {
+                $(".box").each(function() {
+                    const randomHex = '#' + Math.floor(Math.random()*16777215).toString(16);
+                    $(this).css("background-color", randomHex);
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

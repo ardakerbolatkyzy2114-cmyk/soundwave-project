@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Sections & Game</title>
+    <!-- ПРОВЕРЬ: Название файла в VS Code должно быть styles.css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Без этой строки jQuery не будет работать! -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a> | 
+        <a href="elements.html">DOM & Animation</a> | 
+        <a href="game.html">Game</a>
+    </nav>
+
+    <main>
+        <!-- Секция 6: Анимированный мяч -->
+        <section>
+            <h1>Interactive: Bouncing Ball & Game</h1>
+            <div id="ball-container">
+                <div id="ball"></div>
+            </div>
+            <button id="bounceBtn">Start Bouncing</button>
+        </section>
+
+        <hr>
+
+        <!-- Секция 6: Игра в угадывание -->
+        <section>
+            <h3>Guessing Game</h3>
+            <p>I am thinking of a number between 1 and 10.</p>
+            <input type="number" id="userGuess" placeholder="Enter number">
+            <button id="checkGuessBtn">Guess!</button>
+            <p id="gameFeedback"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Team Members: [Ardak], [Linara]</p>
+    </footer>
+
+    <!-- Подключаем логику в самом конце[cite: 3] -->
+    <script src="script.js"></script>
+</body>
+</html> 

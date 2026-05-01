@@ -1,95 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundWave | Home</title>
-    <!-- Подключение Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Подключение общего файла стилей -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Assignment 5 - Interactive Web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body id="mainBody">
-
-    <!-- Навигация (одинаковая для всех страниц) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="index.html">SOUNDWAVE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-3">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Tools</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Tasks & Contact</a></li>
-                </ul>
-            </div>
-        </div>
+<body>
+    <nav>
+        <a href="index.html">Home</a> | <a href="elements.html">DOM & Animation</a> | <a href="game.html">Game</a>
     </nav>
 
-    <!-- Основной контент главной страницы -->
-    <header class="container mt-5 text-center">
-        <div class="p-5 rounded-4 bg-dark bg-opacity-50 border border-secondary shadow-lg hero-card">
-            <h1 class="display-3 fw-bold mb-3">SoundWave Interactive</h1>
-            <p class="lead text-secondary mb-4">A digital workspace exploring JavaScript fundamentals.</p>
-            
-            <!-- Задача 6: Отображение текущей даты и времени -->
-            <div class="mb-4">
-                <div class="d-inline-block p-3 border border-primary rounded bg-black shadow-sm">
-                    <span id="clock" class="fs-4 fw-bold text-primary">Initializing clock...</span>
-                </div>
-            </div>
+    <main>
+        <h1>Selectors & Core Effects</h1>
+        
+        <!-- Section 2: Selectors & CSS -->
+        <section id="selectors-section">
+            <p id="main-text">Original text content.</p>
+            <button id="changeTextBtn">Change Content (.text/.html)</button>
+            <button id="changeStyleBtn">Change Style (.css)</button>
+        </section>
 
-            <!-- Задача 5: Изменение цвета фона страницы -->
-            <div class="mt-4">
-                <p class="text-light">Modify the page's atmosphere using DOM manipulation:</p>
-                <button class="btn btn-primary btn-lg px-5 rounded-pill fw-bold" onclick="changeColor()">Change Background Color</button>
-            </div>
-        </div>
-    </header>
+        <hr>
 
-    <main class="container my-5">
-        <div class="row align-items-center g-5">
-            <div class="col-md-6">
-                <img src="music.jpg" alt="Music Background" class="img-fluid rounded-4 shadow">
+        <!-- Section 3: JQuery Effects -->
+        <section>
+            <h3>Visibility Effects</h3>
+            <p class="target-para">I am a paragraph that can disappear!</p>
+            <button id="hideBtn">Hide</button>
+            <button id="showBtn">Show</button>
+            <button id="toggleBtn">Toggle</button>
+
+            <h3>Fade Effects</h3>
+            <img id="fadeImg" src="https://picsum.photos/id/1/200/150" alt="Fade Example">
+            <br>
+            <button id="fadeInBtn">Fade In</button>
+            <button id="fadeOutBtn">Fade Out</button>
+            <button id="fadeToggleBtn">Fade Toggle</button>
+
+            <h3>Slide (Collapsible Panel)</h3>
+            <div id="panel-header" style="background:#ddd; cursor:pointer; padding:10px;">Click to expand panel</div>
+            <div id="panel-content" style="display:none; padding:10px; border:1px solid #ddd;">
+                This is a collapsible panel controlled by .slideToggle()!
             </div>
-            <div class="col-md-6">
-                <h2 class="fw-bold">Dynamic Experience</h2>
-                <p class="text-secondary">Explore how JavaScript can change the user experience in real-time. Navigate through the menu to see other tools like the Sorting tool and To-Do list.</p>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Футер с именами команды (Requirement 1) -->
-    <footer class="bg-dark text-secondary py-4 border-top border-secondary mt-5">
-        <div class="container text-center">
-            <p class="mb-1"><strong>Team Members:</strong> Ardak, Linara</p>
-            <p class="small mb-0">&copy; 2026 SoundWave Music Lab. Assignment 4 Submission.</p>
-        </div>
+    <footer>
+        <p>Team Members: [Ardak], [Linara]</p>
     </footer>
-
-    <!-- Скрипты для главной страницы -->
-    <script>
-        // Функция для обновления времени каждую секунду (Requirement 6)
-        function updateClock() {
-            const now = new Date();
-            const formatOptions = { 
-                month: 'long', day: 'numeric', year: 'numeric', 
-                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
-            };
-            document.getElementById('clock').innerText = now.toLocaleString('en-US', formatOptions);
-        }
-        setInterval(updateClock, 1000); // Обновление каждую секунду
-        updateClock();
-
-        // Функция изменения фона страницы (Requirement 5)
-        function changeColor() {
-            const colors = ['#1a1a2e', '#16213e', '#0f3460', '#1b262c', '#000000', '#121212'];
-            const randomPick = colors[Math.floor(Math.random() * colors.length)];
-            document.getElementById('mainBody').style.backgroundColor = randomPick;
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html> 
