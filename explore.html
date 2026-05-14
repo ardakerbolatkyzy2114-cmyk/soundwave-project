@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SoundWave - Contact</title>
+    <title>SoundWave - Explore</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,16 +18,12 @@
     </header>
 
     <main>
-        <div class="form-container">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Full Name" required>
-                <input type="email" id="email" placeholder="Email Address" required>
-                <textarea id="message" placeholder="Your Message"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-            <div id="feedback"></div>
+        <h1 style="text-align:center;">Explore Music</h1>
+        <div style="text-align:center; margin-bottom: 20px;">
+            <input type="text" id="search-input" placeholder="Search by artist or title..." style="padding:10px; width:300px; border-radius:5px; border:1px solid #ccc;">
         </div>
+        
+        <div id="song-list" class="grid-container"></div>
     </main>
 
     <footer>

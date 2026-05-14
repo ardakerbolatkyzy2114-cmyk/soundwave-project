@@ -1,60 +1,73 @@
-$(document).ready(function() {
-    // Проверка в консоли (если увидишь эту фразу — кнопки оживут!)
-    console.log("jQuery logic is now active and error-free.");
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Массив данных [cite: 198]
+    const songData = [
+        { id: 1, title: "Midnight City", artist: "M83", genre: "Electronic" },
+        { id: 2, title: "Blinding Lights", artist: "The Weeknd", genre: "Pop" },
+        { id: 3, title: "Nightcall", artist: "Kavinsky", genre: "Synthwave" },
+        { id: 4, title: "Starboy", artist: "The Weeknd", genre: "R&B" }
+    ];
 
-    // --- HOME PAGE (index.html) ---
-    $("#changeTextBtn").on("click", function() {
-        $("#main-text").html("<strong>Success!</strong> Content updated.");
-    });
+    const songList = document.getElementById('song-list');
 
-    $("#changeStyleBtn").on("click", function() {
-        $("#selectors-section").css("background-color", "#e3f2fd");
-    });
+    // 2. Функция отображения через цикл [cite: 199, 203]
+    function renderSongs(data) {
+        if (!songList) return;
+        songList.innerHTML = ""; 
+        
+        data.forEach(song => {
+            const card = document.createElement('div');
+            card.className = 'song-card';
+            card.innerHTML = `
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+                <button onclick="toggleFavorite(${song.id})">❤ Favorite</button>
+            `;
+            songList.appendChild(card); // Манипуляция DOM [cite: 202]
+        });
+    }
 
-    $("#hideBtn").on("click", function() { $(".target-para").hide(); });
-    $("#showBtn").on("click", function() { $(".target-para").show(); });
-    $("#toggleBtn").on("click", function() { $(".target-para").toggle(); });
+    renderSongs(songData);
 
-    $("#fadeOutBtn").on("click", function() { $("#fadeImg").fadeOut(); });
-    $("#fadeInBtn").on("click", function() { $("#fadeImg").fadeIn(); });
-    $("#fadeToggleBtn").on("click", function() { $("#fadeImg").fadeToggle(); });
-
-    $("#panel-header").on("click", function() { $("#panel-content").slideToggle(); });
-
-    // --- DOM & ANIMATION (elements.html) ---
-    $("#addBtn").on("click", function() {
-        $("#dynamic-list").append("<li>New list item added via jQuery!</li>");
-    });
-
-    $("#removeBtn").on("click", function() {
-        $("#dynamic-list li").last().remove();
-    });
-
-    $("#changeSrcBtn").on("click", function() {
-        $("#attrImg").attr("src", "https://picsum.photos/id/40/200/150");
-    });
-
-    $("#startAnimBtn").on("click", function() {
-        $("#animateBox")
-            .animate({ left: "+=100px", opacity: 0.6 }, 800)
-            .animate({ top: "+=40px", width: "100px" }, 600)
-            .animate({ left: "0", top: "0", width: "60px", opacity: 1 }, 1000);
-    });
-
-    // --- GAME PAGE (game.html) ---
-    $("#bounceBtn").on("click", function() {
-        var containerWidth = $("#ball-container").width() - 40;
-        $("#ball").animate({ left: containerWidth }, 1000).animate({ left: 0 }, 1000);
-    });
-
-    var secretNum = Math.floor(Math.random() * 10) + 1;
-    $("#checkGuessBtn").on("click", function() {
-        var userVal = $("#userGuess").val();
-        if (userVal == secretNum) {
-            $("#gameFeedback").text("Correct! Finding new number...").css("color", "green");
-            secretNum = Math.floor(Math.random() * 10) + 1;
+    // 3. Работа с Local Storage (Бонусные баллы) [cite: 182, 205, 223]
+    window.toggleFavorite = (id) => {
+        let favorites = JSON.parse(localStorage.getItem('favSongs')) || [];
+        
+        // Условный оператор (If-Else) [cite: 200, 222]
+        if (favorites.includes(id)) {
+            alert("This song is already in your favorites!");
         } else {
-            $("#gameFeedback").text("Wrong! Try again.").css("color", "red");
+            favorites.push(id);
+            localStorage.setItem('favSongs', JSON.stringify(favorites));
+            alert("Added to Local Storage! (Check Application tab in DevTools)");
         }
+    };
+
+    // 4. Поиск (Event Listener: keyup) [cite: 201, 222]
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = songData.filter(s => s.artist.toLowerCase().includes(term));
+            renderSongs(filtered);
+        });
+    }
+});  
+// Находим кнопку по ID
+const themeBtn = document.getElementById('theme-toggle');
+
+// Добавляем слушатель события клика 
+if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+        // Меняем стиль фона и текста [cite: 202]
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+            document.body.style.backgroundColor = "#2c3e50";
+            document.body.style.color = "white";
+        } else {
+            document.body.style.backgroundColor = "#f0f2f5";
+            document.body.style.color = "#333";
+        }
+        console.log("Theme changed!"); 
     });
-}); 
+} 

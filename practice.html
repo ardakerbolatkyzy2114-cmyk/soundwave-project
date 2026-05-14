@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In-Class Practice 2 - SoundWave Cards</title>
+    <link rel="stylesheet" href="styles.css"> <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .card-container { display: flex; gap: 20px; padding: 20px; flex-wrap: wrap; }
+        .card { 
+            width: 180px; background: #fff; padding: 15px; 
+            border: 2px solid #ddd; border-radius: 10px; text-align: center;
+            color: #333; position: relative;
+        }
+        .card img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+        .highlight-border { border: 4px solid #f1c40f !important; } /* Желтая рамка */
+        .controls { padding: 20px; background: #2c3e50; border-radius: 8px; margin: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Back to Project</a>
+    </nav>
+
+    <main>
+        <h1>jQuery Traversal & Card Effects</h1>
+
+        <div class="controls">
+            <button id="highlightFirst">Highlight First</button>
+            <button id="hideLast">Hide Last</button>
+            <button id="fadeToggleAll">Fade Toggle All</button>
+            <button id="shuffleCards">Shuffle Cards</button>
+            <button id="resetPractice">Reset All</button>
+        </div>
+
+        <div class="card-container" id="cardHolder">
+            <div class="card">
+                <img src="https://picsum.photos/200/150?random=1" alt="Artist 1">
+                <p class="caption">New Release 1</p>
+            </div>
+            <div class="card">
+                <img src="https://picsum.photos/200/150?random=2" alt="Artist 2">
+                <p class="caption">New Release 2</p>
+            </div>
+            <div class="card">
+                <img src="https://picsum.photos/200/150?random=3" alt="Artist 3">
+                <p class="caption">New Release 3</p>
+            </div>
+            <div class="card">
+                <img src="https://picsum.photos/200/150?random=4" alt="Artist 4">
+                <p class="caption">New Release 4</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="practice-logic.js"></script>
+</body>
+</html> 

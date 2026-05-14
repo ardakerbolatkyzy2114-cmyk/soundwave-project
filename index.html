@@ -2,52 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Assignment 5 - Interactive Web</title>
+    <title>SoundWave - Home</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a> | <a href="elements.html">DOM & Animation</a> | <a href="game.html">Game</a>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">SOUNDWAVE</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <h1>Selectors & Core Effects</h1>
-        
-        <!-- Section 2: Selectors & CSS -->
-        <section id="selectors-section">
-            <p id="main-text">Original text content.</p>
-            <button id="changeTextBtn">Change Content (.text/.html)</button>
-            <button id="changeStyleBtn">Change Style (.css)</button>
-        </section>
-
-        <hr>
-
-        <!-- Section 3: JQuery Effects -->
-        <section>
-            <h3>Visibility Effects</h3>
-            <p class="target-para">I am a paragraph that can disappear!</p>
-            <button id="hideBtn">Hide</button>
-            <button id="showBtn">Show</button>
-            <button id="toggleBtn">Toggle</button>
-
-            <h3>Fade Effects</h3>
-            <img id="fadeImg" src="https://picsum.photos/id/1/200/150" alt="Fade Example">
-            <br>
-            <button id="fadeInBtn">Fade In</button>
-            <button id="fadeOutBtn">Fade Out</button>
-            <button id="fadeToggleBtn">Fade Toggle</button>
-
-            <h3>Slide (Collapsible Panel)</h3>
-            <div id="panel-header" style="background:#ddd; cursor:pointer; padding:10px;">Click to expand panel</div>
-            <div id="panel-content" style="display:none; padding:10px; border:1px solid #ddd;">
-                This is a collapsible panel controlled by .slideToggle()!
-            </div>
+        <section style="text-align: center; padding: 50px;">
+            <h1 id="welcome-msg">Welcome to SoundWave</h1>
+            <p>Your ultimate destination for music discovery.</p>
+            <button id="theme-toggle">Change Theme</button>
         </section>
     </main>
 
     <footer>
-        <p>Team Members: [Ardak], [Linara]</p>
+        <p>Team Members: Ardak Yerbolatkyzy, Linara Yermekova</p>
     </footer>
     <script src="script.js"></script>
 </body>
